@@ -1,0 +1,68 @@
+name: Cancel Rescue V1 analytics smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cancel-rescue-smoke.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Verify public page and submit non-qualified smoke event
+        env:
+          PUBLIC_URL: https://karakuri3.github.io/test/
+        run: |
+          python - <<'PY'
+          import json, os, re, urllib.request
+          from pathlib import Path
+
+          html = Path('index.html').read_text(encoding='utf-8')
+          m = re.search(r"const POSTHOG_KEY = '([^']+)'", html)
+          if not m:
+              raise SystemExit('PostHog public capture key not found in index.html')
+          key = m.group(1)
+
+          with urllib.request.urlopen(os.environ['PUBLIC_URL'], timeout=20) as response:
+              live = response.read().decode('utf-8')
+              if response.status != 200 or 'Cancel Rescue V1' not in live or 'cancel_rescue_v1_response' not in live:
+                  raise SystemExit('Public page verification failed')
+
+          payload = {
+              'api_key': key,
+              'event': 'cancel_rescue_v1_response',
+              'properties': {
+                  'distinct_id': 'cancel-rescue-v1-smoke-' + os.environ['GITHUB_RUN_ID'],
+                  '$process_person_profile': False,
+                  '$geoip_disable': True,
+                  'experiment': 'cancel-rescue-v1-20260905',
+                  'qualified': False,
+                  'smoke_test': True,
+                  'real_case': 'no',
+                  'category': 'flight',
+                  'channel': 'direct',
+                  'loss_band': 'lt10k',
+                  'reason': 'weather',
+                  'timing': '31plus',
+                  'status': 'not_cancelled',
+                  'checked': ['none'],
+              },
+          }
+          req = urllib.request.Request(
+              'https://us.i.posthog.com/i/v0/e/',
+              data=json.dumps(payload).encode('utf-8'),
+              headers={'Content-Type': 'application/json'},
+              method='POST',
+          )
+          with urllib.request.urlopen(req, timeout=20) as response:
+              if response.status < 200 or response.status >= 300:
+                  raise SystemExit(f'PostHog capture failed: {response.status}')
+          print('public-page=PASS analytics-capture=PASS qualified=false smoke_test=true')
+          PY
