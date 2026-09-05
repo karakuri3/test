@@ -3,155 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="行けなくなった飛行機・ホテル・旅行予約で、どんなキャンセル損失が発生しているかを匿名で調べる需要検証です。" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Cancel Rescue V1の公開需要検証は終了しました。" />
   <link rel="canonical" href="https://karakuri3.github.io/test/" />
-  <title>Cancel Rescue V1｜予約キャンセル損失の匿名調査</title>
+  <title>Cancel Rescue V1｜検証終了</title>
   <style>
-    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#171717;background:#f6f5f2}*{box-sizing:border-box}body{margin:0}main{max-width:820px;margin:auto;padding:48px 20px 80px}.tag{font-size:12px;font-weight:800;letter-spacing:.09em;color:#666;text-transform:uppercase}h1{font-size:clamp(36px,7vw,64px);line-height:1.04;letter-spacing:-.04em;margin:16px 0}.lead{font-size:19px;line-height:1.75;color:#3c3c3c;max-width:700px}.note{background:#eceae5;border-radius:14px;padding:16px 18px;margin:24px 0 34px;font-size:14px;line-height:1.7;color:#444}.card{background:#fff;border:1px solid #e3e0da;border-radius:22px;padding:26px;margin-top:20px}.card h2{margin:0 0 8px;font-size:25px}.card>p{color:#666;line-height:1.65;margin-top:0}.guides{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}.guide{display:block;border:1px solid #e3e0da;border-radius:14px;padding:15px;text-decoration:none;color:#171717;background:#faf9f7}.guide:hover{border-color:#aaa}.guide strong{display:block;line-height:1.45;margin-bottom:7px}.guide span{display:block;color:#666;font-size:13px;line-height:1.55}.field{margin:23px 0}label,legend{display:block;font-weight:750;margin-bottom:9px}select{width:100%;padding:14px 12px;border:1px solid #d6d2ca;border-radius:11px;background:white;font:inherit}fieldset{border:0;padding:0;margin:23px 0}.checks{display:grid;gap:9px}.check{display:flex;gap:9px;align-items:flex-start;font-weight:500;padding:11px;border:1px solid #e3e0da;border-radius:10px}.check input{margin-top:3px}button{width:100%;border:0;border-radius:12px;padding:15px;background:#171717;color:#fff;font:inherit;font-weight:800;cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}.small{font-size:12px;line-height:1.7;color:#737373}.success,.error,.closed{display:none;margin-top:18px;border-radius:12px;padding:15px;line-height:1.65}.success{background:#eaf4e8}.error{background:#f8e9e7}.closed{background:#eceae5}@media(max-width:620px){main{padding-top:30px}.card{padding:20px}.guides{grid-template-columns:1fr}}
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#171717;background:#f6f5f2}*{box-sizing:border-box}body{margin:0}main{max-width:720px;margin:auto;padding:64px 20px 96px}h1{font-size:clamp(36px,7vw,60px);line-height:1.06;letter-spacing:-.04em;margin:14px 0}.tag{font-size:12px;font-weight:800;letter-spacing:.09em;color:#666;text-transform:uppercase}.lead{font-size:18px;line-height:1.8;color:#3c3c3c}.card{margin-top:28px;padding:22px;background:#fff;border:1px solid #e3e0da;border-radius:18px}.card p{line-height:1.75;margin:0}.small{font-size:13px;color:#666;margin-top:24px;line-height:1.7}
   </style>
 </head>
 <body>
 <main>
-  <div class="tag">Cancel Rescue · V1 public validation</div>
-  <h1>行けなくなった予約で、<br>どれくらい損が出ていますか？</h1>
-  <p class="lead">飛行機・ホテル・旅行プランなどで、台風・欠航・体調不良などにより利用できなくなったケースの実態を調べています。回答は選択式のみです。</p>
-  <div class="note"><strong>これは需要調査です。</strong><br>返金やキャンセル料免除を保証するサービスではありません。予約変更・交渉・売買・保険手続きの代行も行いません。氏名、メールアドレス、予約番号、カード情報、病名などは入力させません。</div>
-
-  <section class="card" aria-labelledby="guide-title">
-    <h2 id="guide-title">予約キャンセルの確認ガイド</h2>
-    <p>公開されている公式情報をもとに、よくあるケースでキャンセル前に確認したい順番を整理しています。</p>
-    <div class="guides">
-      <a class="guide" href="guides/typhoon-flight-hotel/"><strong>台風・欠航でホテルに行けない</strong><span>航空券、ホテル、予約窓口を確認する順番</span></a>
-      <a class="guide" href="guides/non-refundable-hotel/"><strong>返金不可ホテルをキャンセルしたい</strong><span>まず確認する契約・変更・例外のポイント</span></a>
-      <a class="guide" href="guides/unable-to-travel/"><strong>旅行に行けなくなった</strong><span>損失を確定する前に確認したい選択肢</span></a>
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>匿名アンケート</h2>
-    <p>実際に最近起きた、またはいま起きているケースかどうかを含め、7項目ほど選ぶだけです。</p>
-    <form id="survey">
-      <div class="field"><label for="real_case">実際に最近起きた／いま起きている予約トラブルですか？</label><select id="real_case" required><option value="">選択してください</option><option value="yes">はい</option><option value="no">いいえ／仮定の話です</option></select></div>
-      <div class="field"><label for="category">予約の種類</label><select id="category" required><option value="">選択してください</option><option value="flight">航空券</option><option value="hotel">ホテル</option><option value="package">航空券＋ホテル等の旅行商品</option><option value="other">その他</option></select></div>
-      <div class="field"><label for="channel">予約した場所</label><select id="channel" required><option value="">選択してください</option><option value="direct">提供元の公式サイト</option><option value="ota">旅行予約サイト（OTA）</option><option value="agency">旅行会社</option><option value="unknown">わからない</option></select></div>
-      <div class="field"><label for="loss_band">失う可能性がある金額</label><select id="loss_band" required><option value="">選択してください</option><option value="lt10k">1万円未満</option><option value="10to30k">1万〜3万円未満</option><option value="30to100k">3万〜10万円未満</option><option value="100kplus">10万円以上</option></select></div>
-      <div class="field"><label for="reason">行けなくなった主な理由</label><select id="reason" required><option value="">選択してください</option><option value="weather">台風・悪天候</option><option value="transport">欠航・運休</option><option value="health">本人・同行者の体調不良</option><option value="family">家族事情</option><option value="schedule">仕事・予定変更</option><option value="other">その他</option></select></div>
-      <div class="field"><label for="timing">利用予定日まで</label><select id="timing" required><option value="">選択してください</option><option value="today">当日</option><option value="1to2">1〜2日</option><option value="3to7">3〜7日</option><option value="8to30">8〜30日</option><option value="31plus">31日以上</option></select></div>
-      <div class="field"><label for="status">現在の状態</label><select id="status" required><option value="">選択してください</option><option value="not_cancelled">まだキャンセルしていない</option><option value="cancelled">キャンセル済み</option><option value="fee_charged">キャンセル料をすでに請求された</option></select></div>
-      <fieldset><legend>すでに確認したもの（複数可）</legend><div class="checks"><label class="check"><input type="checkbox" name="checked" value="terms">予約画面のキャンセル条件</label><label class="check"><input type="checkbox" name="checked" value="contacted">予約先への問い合わせ</label><label class="check"><input type="checkbox" name="checked" value="insurance">加入済みの保険</label><label class="check"><input type="checkbox" name="checked" value="none">何も確認していない</label></div></fieldset>
-      <button id="submit" type="submit">匿名で回答を送信</button>
-      <div id="success" class="success"><strong>回答ありがとうございました。</strong><br>この回答はCancel Rescueの需要検証にのみ使います。</div>
-      <div id="error" class="error">送信できませんでした。通信状態を確認して、もう一度お試しください。</div>
-      <div id="closed" class="closed"><strong>このV1調査は終了しました。</strong><br>ご協力ありがとうございました。</div>
-    </form>
-    <p class="small">データ最小化：回答内容として保存するのは上記の選択項目と匿名の流入区分のみです。ユーザーアカウントや連絡先は作成・収集しません。ページ配信や不正防止のため、GitHub/PostHog等の技術提供者が通常の通信メタデータ（IPアドレスやUser-Agent等）を一時的に処理する場合があります。分析イベントではGeoIP処理と人物プロファイル作成を無効化しています。</p>
-  </section>
+  <div class="tag">Cancel Rescue · archived validation</div>
+  <h1>公開需要検証は終了しました。</h1>
+  <p class="lead">Cancel Rescue V1の匿名アンケートおよび分析イベントの収集は終了しています。</p>
+  <div class="card"><p>本ページから予約変更、キャンセル交渉、売買、保険手続き、個別相談等のサービスは提供していません。</p></div>
+  <p class="small">検証終了日：2026年9月6日。過去の検証コードと判断記録は監査・学習目的でリポジトリ履歴に保存されています。</p>
 </main>
-<script>
-(() => {
-  const POSTHOG_KEY = 'phc_CB6MuSYTojwdc3ohQ4ebZAWNUpQjCRh34iTxrJChNdg8';
-  const ENDPOINT = 'https://us.i.posthog.com/i/v0/e/';
-  const EXPERIMENT = 'cancel-rescue-v1-20260905';
-  const DEADLINE = new Date('2026-10-05T00:00:00+09:00');
-  const ALLOWED_SOURCES = new Set(['direct','seo','x','note','reddit','smoke']);
-  const params = new URLSearchParams(location.search);
-  const requestedSource = (params.get('src') || 'direct').toLowerCase();
-  const source = ALLOWED_SOURCES.has(requestedSource) ? requestedSource : 'direct';
-  const smokeTest = source === 'smoke';
-  const pageId = 'cancel-rescue-v1-page-' + crypto.randomUUID();
-  const form = document.getElementById('survey');
-  const button = document.getElementById('submit');
-  const success = document.getElementById('success');
-  const error = document.getElementById('error');
-  const closed = document.getElementById('closed');
-  let started = false;
-
-  async function capture(event, properties = {}) {
-    const payload = {
-      api_key: POSTHOG_KEY,
-      event,
-      properties: {
-        distinct_id: pageId,
-        $process_person_profile: false,
-        $geoip_disable: true,
-        experiment: EXPERIMENT,
-        source,
-        smoke_test: smokeTest,
-        ...properties
-      }
-    };
-    const r = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(payload),
-      keepalive: true
-    });
-    if (!r.ok) throw new Error('capture failed');
-  }
-
-  capture('cancel_rescue_v1_view').catch(() => {});
-
-  const expired = Date.now() >= DEADLINE.getTime();
-  const alreadySubmitted = localStorage.getItem('cancel_rescue_v1_submitted') === '1';
-
-  if (expired) {
-    form.querySelectorAll('select,input,button').forEach(el => el.disabled = true);
-    button.textContent = '調査期間は終了しました';
-    closed.style.display = 'block';
-  } else if (alreadySubmitted) {
-    button.disabled = true;
-    button.textContent = 'このブラウザから回答済みです';
-  }
-
-  form.addEventListener('change', (e) => {
-    if (expired || alreadySubmitted) return;
-    if (!started) {
-      started = true;
-      capture('cancel_rescue_v1_intake_started').catch(() => {});
-    }
-    if (e.target.name === 'checked') {
-      const none = form.querySelector('input[name="checked"][value="none"]');
-      const others = [...form.querySelectorAll('input[name="checked"]:not([value="none"])')];
-      if (e.target.value === 'none' && e.target.checked) others.forEach(el => el.checked = false);
-      if (e.target.value !== 'none' && e.target.checked) none.checked = false;
-    }
-  });
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (expired || localStorage.getItem('cancel_rescue_v1_submitted') === '1') return;
-    error.style.display = 'none';
-    button.disabled = true;
-    button.textContent = '送信中…';
-
-    const checked = [...document.querySelectorAll('input[name="checked"]:checked')].map(el => el.value);
-    const response = {
-      real_case: document.getElementById('real_case').value,
-      category: document.getElementById('category').value,
-      channel: document.getElementById('channel').value,
-      loss_band: document.getElementById('loss_band').value,
-      reason: document.getElementById('reason').value,
-      timing: document.getElementById('timing').value,
-      status: document.getElementById('status').value,
-      checked
-    };
-
-    const qualified = response.real_case === 'yes' && response.loss_band !== 'lt10k';
-
-    try {
-      await capture('cancel_rescue_v1_response', {qualified, ...response});
-      localStorage.setItem('cancel_rescue_v1_submitted', '1');
-      success.style.display = 'block';
-      button.textContent = '回答済みです';
-      form.querySelectorAll('select,input').forEach(el => el.disabled = true);
-    } catch (_) {
-      error.style.display = 'block';
-      button.disabled = false;
-      button.textContent = '匿名で回答を送信';
-    }
-  });
-})();
-</script>
 </body>
 </html>
